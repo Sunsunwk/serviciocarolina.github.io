@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-image: url('imagenes/hea.png'); 
+            background-size: cover; 
+            background-position: center; 
+            color: #fff;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .menu-bar {
+            background-color: #2f9fd3; 
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .menu-bar a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .menu-bar a:hover {
+            text-decoration: underline;
+        }
+        footer {
+                background-color: #2f9fd3; 
+                color: white; 
+                text-align: center; 
+                padding: 10px 0; 
+                position: relative; 
+                bottom: 0; 
+                width: 100%; 
+            }   
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .post {
+            background: #f4f4f4;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .comments {
+            background: #e9e9e9;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        form {
+            margin: 20px 0;
+        }
+        textarea, input[type="text"], input[type="submit"] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .comment {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+    </style>
+    <script>
+        function addComment(event) {
+            event.preventDefault(); 
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            if (name && comment) {
+                const commentSection = document.getElementById('commentSection');
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
+                commentSection.appendChild(newComment);
+
+                document.getElementById('name').value = '';
+                document.getElementById('comment').value = '';
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="estail.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="imagenes/logoo.png" alt="Logo"></a>
+            <h1>Servicio Social Carolina</h1>
+        </div>
+    </header>
+    <div class="menu-bar">
+        <a href="index.html">Inicio</a>
+        <a href="servicioss.html">Servicios</a>
+        <a href="blog.html">Blog</a>
+        <a href="registro.html">Registro</a>
+    </div>
+    <div class="container">
+        <div class="post">
+            <h2>Blog de Servicio Social Carolina</h2>
+            <p>Escribe aquí tu experiencia</p>
+        </div>
+        <div class="comments" id="commentSection">
+            <h3>Comentarios</h3>
+        </div>
+        <form onsubmit="addComment(event)">
+            <h3>Deja tu comentario</h3>
+            <input type="text" id="name" placeholder="Tu nombre" required>
+            <textarea id="comment" rows="5" placeholder="Escribe tu comentario aquí..." required></textarea>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    <footer>
+        <a href="https://www.instagram.com/universidadcarolina?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="">
+            <img src="botones/ins.png" alt="instagram"></a> <a href="https://www.facebook.com/UniversidadCarolina" target="">
+                <img src="botones/fac.png" alt="Facebook"></a>
+    </footer>
+</body>
+</html>
